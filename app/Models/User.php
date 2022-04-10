@@ -20,6 +20,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        "full_name",
+        "img_src",
         'password',
     ];
 
@@ -41,4 +43,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Always encrypt the password when it is updated
+     * 
+     * @param $value
+     * @return string
+     */
+    public function setPasswordAttribute($cur_val){
+        $this->attributes["password"] = encrypt($cur_val);
+    }
 }
