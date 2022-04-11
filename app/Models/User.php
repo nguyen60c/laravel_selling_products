@@ -23,6 +23,7 @@ class User extends Authenticatable
         "full_name",
         "img_src",
         'password',
+        "username"
     ];
 
     /**
@@ -50,7 +51,15 @@ class User extends Authenticatable
      * @param $value
      * @return string
      */
-    public function setPasswordAttribute($cur_val){
+    public function setPasswordAttribute($cur_val)
+    {
         $this->attributes["password"] = encrypt($cur_val);
+    }
+
+    /**
+     * Always add img_src
+     */
+    public function setImg_srcAttribute($val){
+        $this->attributes["img_src"] = $val;
     }
 }
