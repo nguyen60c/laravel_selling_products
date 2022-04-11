@@ -1,7 +1,7 @@
 @extends("layouts.auth-master")
 
-@section("content")
-<section class="vh-100">
+@section('content')
+    <section class="vh-100">
         <div class="container-fluid h-custom">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-md-9 col-lg-6 col-xl-5">
@@ -14,37 +14,34 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="divider d-flex align-items-center my-4">
-                            <p class="text-center fw-bold mx-3 mb-0">Login</p>
+                            <h1 class="text-center fw-bold mx-3 mb-0">Login</h1>
                         </div>
 
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <input type="email" name="email" class="form-control form-control-lg"
-                                placeholder="Enter a valid email address or username" value="{{ old('email') }}" required="required"
-                                autofocus />
-                            <label class="form-label" for="email">Email address</label>
+                                placeholder="Enter a valid email address or username" value="{{ old('email') }}"
+                                required="required" autofocus />
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-3">
                             <input type="password" name="password" class="form-control form-control-lg"
                                 placeholder="Enter password" />
-                            <label class="form-label" for="form3Example4">Password</label>
                         </div>
 
                         <div class="text-center text-lg-start mt-4 pt-2">
                             <button type="button" class="btn btn-primary btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="{{ route('register.show') }}"
-                                    class="link-danger">Register</a></p>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a
+                                    href="{{ route('register.show') }}" class="link-danger">Register</a></p>
                         </div>
 
                     </form>
                 </div>
             </div>
         </div>
-        <div
-            class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+        <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5">
             <!-- Copyright -->
             @include('auth.partials.copy')
             <!-- Copyright -->

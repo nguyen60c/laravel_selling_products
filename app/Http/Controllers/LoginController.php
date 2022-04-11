@@ -9,12 +9,13 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     /**
-     * Display login page
+     * Display login page.
      * 
      * @return Renderable
      */
-    public function show(){
-        return view("auth.login");
+    public function show()
+    {
+        return view('auth.login');
     }
 
     /**
@@ -24,13 +25,14 @@ class LoginController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function login(LoginRequest $request){
+    public function login(LoginRequest $request)
+    {
         $credentials = $request->getCredentials();
 
-        if(!Auth::validate($credentials)){
-            return redirect()->to("login")
-            ->withErrors(trans("auth.failed"));
-        }
+        if (!Auth::validate($credentials)) :
+            return redirect()->to('login')
+                ->withErrors(trans('auth.failed'));
+        endif;
 
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
@@ -47,7 +49,8 @@ class LoginController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    protected function authenticated(Request $request, $user){
+    protected function authenticated(Request $request, $user)
+    {
         return redirect()->intended();
     }
 }
