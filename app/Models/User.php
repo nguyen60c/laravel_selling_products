@@ -23,7 +23,8 @@ class User extends Authenticatable
         "full_name",
         "img_src",
         'password',
-        "username"
+        "username",
+        "total"
     ];
 
     /**

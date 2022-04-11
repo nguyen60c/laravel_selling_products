@@ -21,7 +21,6 @@ class CreateProductsTable extends Migration
             $table->decimal("price");
             $table->integer("quantity");
             $table->string("img_product_src");
-            $table->decimal("total")->nullable();
             $table->timestamps();
 
             $table->foreign("user_id")

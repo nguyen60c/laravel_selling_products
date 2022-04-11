@@ -9,8 +9,19 @@
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Products</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Your oders</a></li>
+                @auth
+                    @role('Admin')
+                        <li><a href="{{ route('users.index') }}" class="nav-link px-2 text-white">Users</a></li>
+                        <li><a href="{{ route('roles.index') }}" class="nav-link px-2 text-white">Roles</a></li>
+                    @endrole
+                    @role("Seller")
+                    <li><a href="#" class="nav-link px-2 text-white">Upload Products</a></li>
+                    @endrole
+                    @role("User")
+                    <li><a href="{{ route('products.index') }}" class="nav-link px-2 text-white">Buy Products</a></li>
+                    <li><a href="{{ route('products.index') }}" class="nav-link px-2 text-white">Your oders</a></li>
+                    @endrole
+                @endauth
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
